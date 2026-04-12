@@ -10,19 +10,21 @@
   </h2>
 
   {% for item in honors.awards %}
-  <div class="item.title">
+  <div class="item">
     <div class="meta">
       <div class="upper-row">
-        <h3 class="job-title">{{ item.name }}</h3>
-        <div class="time">{{ item.time }}</div>
+        <h3 class="job-title">
+          {% if item.link and item.link != "#" %}
+            <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+          {% else %}
+            {{ item.title }}
+          {% endif %}
+        </h3>
       </div>
       {% if item.organization %}
       <div class="company">{{ item.organization }}</div>
       {% endif %}
     </div>
-    {% if item.details %}
-    <div class="details">{{ item.details | markdownify }}</div>
-    {% endif %}
   </div>
   {% endfor %}
 </section>
