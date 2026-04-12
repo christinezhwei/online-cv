@@ -1,0 +1,29 @@
+{% assign honors = site.data.data["honors-awards"] %}
+{% if honors %}
+<section class="section honors-awards-section">
+  <h2 class="section-title">
+    <span class="fa-stack fa-xs">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-award fa-stack-1x fa-inverse"></i>
+    </span>
+    {{ honors.title }}
+  </h2>
+
+  {% for item in honors.info %}
+  <div class="item">
+    <div class="meta">
+      <div class="upper-row">
+        <h3 class="job-title">{{ item.name }}</h3>
+        <div class="time">{{ item.time }}</div>
+      </div>
+      {% if item.organization %}
+      <div class="company">{{ item.organization }}</div>
+      {% endif %}
+    </div>
+    {% if item.details %}
+    <div class="details">{{ item.details | markdownify }}</div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
