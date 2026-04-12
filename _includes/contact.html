@@ -31,6 +31,12 @@
     </li>
     {% endif %}
 
+    {% if sidebar["Google Scholar"] %}
+    <li class="google-scholar"><i class="fab fa-google-scholar"></i>
+     <a href="{{ sidebar["Google Scholar"] }}" target="_blank">{{ sidebar["Google Scholar"] }}</a>
+    </li>
+    {% endif %}
+
     {% if sidebar.website %}
     <li class="website"><i class="fas fa-globe-americas"></i>
       <a href="{{ sidebar.website }}" target="_blank">{{ sidebar.website }}</a>
